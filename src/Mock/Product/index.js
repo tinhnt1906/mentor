@@ -1,4 +1,4 @@
-const products = {
+export const products = {
   1: {
     id: '1',
     href: 'Adidas-EQ21-Run',
@@ -22,4 +22,3 @@ const products = {
   }
 }
 
-export default products

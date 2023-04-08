@@ -1,4 +1,4 @@
-import categories from '../../Mock/Category'
+import categories from '../../Mock/Category/index.js'
 
 function useHeader() {
   return Object.values(categories).map((item) => {
