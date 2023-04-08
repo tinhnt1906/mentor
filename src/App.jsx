@@ -1,10 +1,10 @@
-import { routes } from './routes'
+import { routes } from './routes/index.jsx'
 import { Routes, Route, BrowserRouter } from 'react-router-dom'
-import MainLayout from './layouts/MainLayout'
+import MainLayout from './layouts/index.js'
 function App() {
   return (
-    <div className='App'>
-      <BrowserRouter>
+    <BrowserRouter>
+      <MainLayout>
         <Routes>
           {Object.values(routes).map((route) => {
             const Page = route.component
@@ -13,17 +13,14 @@ function App() {
                 exact
                 key={route.path}
                 path={route.path}
-                element={
-                  <MainLayout>
-                    <Page />
-                  </MainLayout>
+                element={<Page/>
                 }
               />
             )
           })}
         </Routes>
-      </BrowserRouter>
-    </div>
+      </MainLayout>
+    </BrowserRouter>
   )
 }
 

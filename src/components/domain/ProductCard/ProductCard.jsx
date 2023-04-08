@@ -1,5 +1,5 @@
 import { Card } from 'antd'
-import Price from '../Price'
+import Price from '../../ui/Price/index.js'
 
 function ProductCard({ name, price, image }) {
   const { Meta } = Card

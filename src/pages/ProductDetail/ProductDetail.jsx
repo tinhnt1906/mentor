@@ -1,12 +1,16 @@
 import { Breadcrumb, Row, Col, Image, Typography, Space, Button, InputNumber } from 'antd'
 
-import Price from '../../components/Price'
+import Price from '../../components/ui/Price'
 import useProductDetail from './useProductDetail'
 
 function ProductDetail() {
   const { Title, Text } = Typography
 
-  const product = useProductDetail()
+  const {product} = useProductDetail()
+
+  if(!product){
+    return null
+  }
 
   return (
     <div>
