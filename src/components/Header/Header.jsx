@@ -1,8 +1,14 @@
 import { Layout, Menu, Col, Row, Button } from 'antd'
 import { SearchOutlined, ShoppingCartOutlined } from '@ant-design/icons'
 import { Link } from 'react-router-dom'
+
+import { routes } from '../../routes'
+import useHeader from './useHeader'
+
 const Header = () => {
   const { Header } = Layout
+
+  const items = useHeader()
 
   return (
     <Layout>
@@ -11,20 +17,14 @@ const Header = () => {
           <Col span={3}>Logo</Col>
 
           <Col span={18}>
-            <Menu mode='horizontal'>
-              <Menu.Item>SALEOFF 30%</Menu.Item>
-              <Menu.Item>GIÀY BÓNG ĐÁ</Menu.Item>
-              <Menu.Item>GIÀY BÓNG RỔ</Menu.Item>
-              <Menu.Item>GIÀY ĐI BỘ</Menu.Item>
-              <Menu.Item>GIÀY SNEAKER</Menu.Item>
-            </Menu>
+            <Menu mode='horizontal' items={items} />
           </Col>
 
           <Col span={3}>
             <Link>
               <Button icon={<SearchOutlined />}></Button>
             </Link>
-            <Link to='/cart'>
+            <Link to={routes.CART.path}>
               <Button icon={<ShoppingCartOutlined />}></Button>
             </Link>
           </Col>

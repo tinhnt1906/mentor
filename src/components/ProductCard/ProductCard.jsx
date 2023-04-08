@@ -1,12 +1,13 @@
 import { Card } from 'antd'
+import Price from '../Price'
 
-function ProductCard() {
+function ProductCard({ name, price, image }) {
   const { Meta } = Card
 
   return (
-    <Card hoverable cover={<img alt='example' src='https://os.alipayobjects.com/rmsportal/QBnOOoLaAfKPirc.png' />}>
-      <Meta title='Europe Street beat' />
-      <span>$1000</span>
+    <Card hoverable cover={<img alt={name} src={image} />}>
+      <Meta title={name} />
+      <Price price={price} />
     </Card>
   )
 }

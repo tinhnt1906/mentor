@@ -1,7 +1,12 @@
 import { Breadcrumb, Row, Col, Image, Typography, Space, Button, InputNumber } from 'antd'
 
+import Price from '../../components/Price'
+import useProductDetail from './useProductDetail'
+
 function ProductDetail() {
   const { Title, Text } = Typography
+
+  const product = useProductDetail()
 
   return (
     <div>
@@ -12,14 +17,14 @@ function ProductDetail() {
           <Col span={4}>Sub image</Col>
 
           <Col span={6}>
-            <Image width={200} src='https://zos.alipayobjects.com/rmsportal/jkjgkEfvpUPVyRjUImniVslZfWPnJuuZ.png' />
+            <Image width={200} src={product.image} />
           </Col>
 
           <Col span={14}>
             <div className='product-info'>
               <Space direction='vertical'>
-                <Title level={3}>Nike Quest 5 Grey Metallic Copper - DD9291-004</Title>
-                <Text type='danger'>1,750,000đ</Text>
+                <Title level={3}>{product.name}</Title>
+                <Price price={product.price} />
                 <Text>- Ship COD Thanh toán khi nhận hàng</Text>
                 <Text>- Đổi hàng trong vòng 10 ngày. </Text>
                 <Text>- Mua hàng trực tiếp tại: 242/14 Nguyễn Xí, Phường 13, Bình Thạnh</Text>

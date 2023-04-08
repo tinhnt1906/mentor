@@ -1,11 +1,9 @@
-import path from '../constants/path'
-
 import Home from '../pages/Home'
 import Cart from '../pages/Cart'
 import ProductDetail from '../pages/ProductDetail'
 
-export const routes = [
-  { path: path.home, component: Home },
-  { path: path.cart, component: Cart },
-  { path: path.productDetail, component: ProductDetail }
-]
+export const routes = {
+  HOME: { path: '/', component: Home },
+  CART: { path: '/cart', component: Cart },
+  PRODUCT_DETAIL: { path: '/:slug', component: ProductDetail }
+}
