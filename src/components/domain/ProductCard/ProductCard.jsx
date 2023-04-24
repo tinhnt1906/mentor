@@ -1,7 +1,7 @@
 import { Card } from 'antd'
 import Price from '../../ui/Price'
 
-function ProductCard({ name, price, image }) {
+export function ProductCard({ name, price, image }) {
   const { Meta } = Card
 
   return (
@@ -11,5 +11,3 @@ function ProductCard({ name, price, image }) {
     </Card>
   )
 }
-
-export default ProductCard

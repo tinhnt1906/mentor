@@ -3,13 +3,38 @@ import Price from '../../components/ui/Price'
 import { useSelector } from 'react-redux'
 import { changeQuantity, removeCart } from '../../features/cartSlice'
 import { DeleteOutlined } from '@ant-design/icons'
-import { columns } from './Cart.hook'
 
 function Cart() {
   const { Title } = Typography
 
   const carts = useSelector((state) => state.cart.cartItems)
 
+  const columns = [
+    {
+      title: 'Hình ảnh',
+      dataIndex: 'image'
+    },
+    {
+      title: 'Tên sản phẩm',
+      dataIndex: 'name'
+    },
+    {
+      title: 'Giá',
+      dataIndex: 'price'
+    },
+    {
+      title: 'Số lượng',
+      dataIndex: 'quantity'
+    },
+    {
+      title: 'Tổng cộng',
+      dataIndex: 'total'
+    },
+    {
+      title: 'Xoá',
+      dataIndex: 'delete'
+    }
+  ]
   const datas = Object.values(carts).map((item) => {
     return {
       key: item.id,

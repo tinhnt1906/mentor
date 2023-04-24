@@ -1,9 +1,7 @@
 import { Col, Row } from 'antd'
-import ProductCard from '../../components/domain/ProductCard'
+import { ProductCard } from '../../components/domain/ProductCard'
 import { useProduct } from './Product.hook.js'
 import { Link } from 'react-router-dom'
-import { useProduct } from './Product.hook.js'
-// import {toDetail} from "../../routes/index.jsx";
 
 function Product() {
   const { products } = useProduct()

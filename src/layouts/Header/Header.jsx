@@ -8,7 +8,7 @@ import { useDispatch, useSelector } from 'react-redux'
 import { useEffect } from 'react'
 import { getCountCart } from '../../features/cartSlice'
 
-const Header = () => {
+export const Header = () => {
   const { Header } = Layout
   const items = useHeader()
 
@@ -16,7 +16,6 @@ const Header = () => {
   const cart = useSelector((state) => state.cart)
   const cartTotalQuantity = useSelector((state) => state.cart.cartTotalQuantity)
 
-  useEffect(() => {}, [cart])
   return (
     <Layout>
       <Header>
@@ -44,5 +43,3 @@ const Header = () => {
     </Layout>
   )
 }
-
-export default Header
