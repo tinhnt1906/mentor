@@ -1,10 +1,11 @@
 import { Layout } from 'antd'
 import React from 'react'
-import Header from '../../components/Header'
-import Footer from '../../components/Footer'
+import Header from '../Header'
+import Footer from '../Footer'
 
 function MainLayout({ children }) {
   const { Content } = Layout
+
   return (
     <Layout>
       <Header />

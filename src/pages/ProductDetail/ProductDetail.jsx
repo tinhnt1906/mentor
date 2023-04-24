@@ -1,17 +1,21 @@
-import { Breadcrumb, Row, Col, Image, Typography, Space, Button, InputNumber } from 'antd'
-
-import Price from '../../components/Price'
-import useProductDetail from './useProductDetail'
+import { Row, Col, Image, Typography, Space, Button, InputNumber } from 'antd'
+import Price from '../../components/ui/Price'
+import { useProductDetail } from './ProductDetail.hook.js'
+import { addToCart } from '../../features/cartSlice'
+import { useDispatch } from 'react-redux'
 
 function ProductDetail() {
   const { Title, Text } = Typography
+  const dispatch = useDispatch()
 
-  const product = useProductDetail()
+  const { product } = useProductDetail()
+  if (!product) return null
 
+  const handleAddToCart = (product) => {
+    dispatch(addToCart(product))
+  }
   return (
     <div>
-      <Breadcrumb items={[{ title: 'Home' }]} />
-
       <div className='product-detail'>
         <Row>
           <Col span={4}>Sub image</Col>
@@ -34,7 +38,7 @@ function ProductDetail() {
               <Space>
                 <Text>Số Lượng</Text>
                 <InputNumber min={1} max={5} defaultValue={1} />
-                <Button>Thêm vào giỏ hàng</Button>
+                <Button onClick={() => handleAddToCart(product)}>Thêm vào giỏ hàng</Button>
                 <Button>Mua ngay</Button>
               </Space>
             </div>
