@@ -1,13 +1,17 @@
 import { Typography, Button, Col, InputNumber, Row, Table, Image, Empty } from 'antd'
 import Price from '../../components/ui/Price'
-import { useSelector } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 import { changeQuantity, removeCart } from '../../features/cartSlice'
 import { DeleteOutlined } from '@ant-design/icons'
 
 function Cart() {
   const { Title } = Typography
-
+  const dispatch = useDispatch()
   const carts = useSelector((state) => state.cart.cartItems)
+
+  const handleDeleteItemCart = (item) => {
+    dispatch(removeCart(item))
+  }
 
   const columns = [
     {
@@ -47,15 +51,15 @@ function Cart() {
       total: item.price * item.quantity,
       delete: (
         <Button>
-          <DeleteOutlined onClick={() => handleDeleteItemCart(item)} />
+          <DeleteOutlined
+            onClick={() => {
+              handleDeleteItemCart(item)
+            }}
+          />
         </Button>
       )
     }
   })
-
-  const handleDeleteItemCart = (item) => {
-    dispatch(removeCart(item))
-  }
 
   const handleChangeQuantity = (id, quantity) => {
     dispatch(changeQuantity({ id, quantity }))

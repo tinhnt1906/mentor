@@ -1,12 +1,10 @@
-import { Layout, Menu, Col, Row, Button, Space, Badge } from 'antd'
 import { SearchOutlined, ShoppingCartOutlined } from '@ant-design/icons'
+import { Badge, Button, Col, Layout, Menu, Row, Space } from 'antd'
 import { Link } from 'react-router-dom'
 
+import { useDispatch, useSelector } from 'react-redux'
 import { routes } from '../../routes'
 import useHeader from './useHeader'
-import { useDispatch, useSelector } from 'react-redux'
-import { useEffect } from 'react'
-import { getCountCart } from '../../features/cartSlice'
 
 export const Header = () => {
   const { Header } = Layout
@@ -14,8 +12,8 @@ export const Header = () => {
 
   const dispatch = useDispatch()
   const cart = useSelector((state) => state.cart)
-  const cartTotalQuantity = useSelector((state) => state.cart.cartTotalQuantity)
 
+  console.log(cart)
   return (
     <Layout>
       <Header>
@@ -32,7 +30,7 @@ export const Header = () => {
                 <Button icon={<SearchOutlined />}></Button>
               </Link>
               <Link to={routes.CART.path}>
-                <Badge count={cartTotalQuantity} showZero>
+                <Badge count={Object.keys(cart.cartItems).length} showZero>
                   <Button icon={<ShoppingCartOutlined />}></Button>
                 </Badge>
               </Link>
