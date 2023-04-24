@@ -11,3 +11,7 @@ export const routes = {
   LOGIN: { path: '/login', component: Login },
   NOT_FOUND: { path: '*', component: NotFound }
 }
+
+// export const  toDetail = (slug)=>{
+//   return `/detail/${slug}`
+// }

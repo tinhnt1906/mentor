@@ -1,4 +1,4 @@
-import { routes } from './routes'
+import { routes } from './routes/index.jsx'
 import { Routes, Route, BrowserRouter } from 'react-router-dom'
 import MainLayout from './layouts/MainLayout'
 import { ToastContainer } from 'react-toastify'
@@ -8,6 +8,7 @@ function App() {
     <BrowserRouter>
       <MainLayout>
         <ToastContainer />
+
         <Routes>
           {Object.values(routes).map((route) => {
             const Page = route.component
